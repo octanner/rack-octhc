@@ -2,8 +2,10 @@ require 'simplecov'
 SimpleCov.start
 
 require 'rack/test'
-require 'rack-oct-health-check'
 require 'ostruct'
+
+require 'rack-octhc'
+
 RSpec.configure do |config|
   config.order = "random"
 end
