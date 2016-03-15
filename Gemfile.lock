@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack-oct-health-check (1.0.0)
+    rack-octhc (1.0.0)
       rack
 
 GEM
@@ -73,7 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   guard-rspec
-  rack-oct-health-check!
+  rack-octhc!
   rack-test
   rspec
   simplecov
