@@ -1,6 +1,6 @@
 class Rack::OCTanner::HealthCheck
 
-  DEFAULT_HEALTH_CHECK_PATH = '/octhc'
+  DEFAULT_HEALTH_CHECK_PATH = '/octhc'.freeze
 
   attr_reader :app
 
@@ -9,7 +9,7 @@ class Rack::OCTanner::HealthCheck
   end
 
   def call(env)
-    @env = env
+    @env = env.dup
     return health_check_response if on_health_check_path?
     @app.call(@env)
   end
@@ -21,7 +21,7 @@ class Rack::OCTanner::HealthCheck
   end
 
   def current_path
-    @current_path ||= @env["PATH_INFO"].downcase
+    @env['PATH_INFO'].downcase
   end
 
   def health_check_response
