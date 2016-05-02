@@ -34,6 +34,18 @@ require 'rack-octhc'
 Rails.application.config.middleware.use Rack::OCTanner::HealthCheck
 ```
 
+#### Flash Messages, Redirects and OCTHC
+
+If your Rails application is using flash messages and redirects, you may want to inject the OCTHC middleware early in your stack:
+```ruby
+require 'rack-octhc'
+class Application < Rails::Application
+  Rails.application.config.middleware.insert_before ActionDispatch::Static, Rack::OCTanner::HealthCheck
+end
+```
+This will prevent redirects from losing their message content upon redirect.
+
+
 ## Health Checks
 
 Operations will occasionally send HTTP requests to the '/octhc' endpoint
