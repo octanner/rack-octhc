@@ -18,16 +18,7 @@ bundle install
 
 ### Configuration
 
-Add the following to your config/applications.rb:
-
-```ruby
-require 'rack-octhc'
-class Application < Rails::Application
-  config.middleware.use Rack::OCTanner::HealthCheck
-end
-```
-
-Or in an initializer:
+Create an initializer:
 
 ```ruby
 require 'rack-octhc'
